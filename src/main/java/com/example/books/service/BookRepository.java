@@ -10,12 +10,12 @@ import java.util.Map;
 
 @Repository
 public class BookRepository{
-    Map<Integer, Books> map=new LinkedHashMap<Integer, Books>();
+    Map<Integer, Books> map=new LinkedHashMap<>();
     @PostConstruct
       void data(){
-
-        map.put(01,new Books(01,"chetan bhagath","one indian girl"));
-        map.put(02,new Books(02,"amith","triology of siva"));
+        map.put(1,new Books(1,"chetan bhagath","one indian girl"));
+        map.put(2,new Books(2,"amith","triology of siva"));
+        map.put(3,new Books(3,"chetan bhagath","random name"));
      }
      public Flux<Books> findAllBooks(){
          return Flux.fromStream(map.values().stream());
