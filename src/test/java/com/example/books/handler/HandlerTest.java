@@ -8,9 +8,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.reactive.server.WebTestClient;
 import reactor.core.publisher.Flux;
-import reactor.core.publisher.Mono;
-
-import java.awt.print.Book;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class HandlerTest {
@@ -41,6 +38,11 @@ class HandlerTest {
                 .hasSize(3)
                 .equals(store.count());
     }
+     void findAllBooksTest(){
+        webTestClient.get().uri("/allbooks")
+                .accept(MediaType.APPLICATION_JSON)
+                .exchange();
+     }
     @Test
     void findBookByFirstName() {
          webTestClient.get()
